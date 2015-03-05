@@ -56,8 +56,8 @@ public class AppLoader extends CordovaPlugin {
                 return true;
             }
             injectHomeScript(callbackContext);
-            //super.webView.loadUrl("file://" + extractPath + "index.html");
-            CordovaWebView.loadUrlIntoView("file://" + extractPath + "index.html", true);
+            super.webView.loadUrl("file://" + extractPath + "index.html");
+            //CordovaWebView.loadUrlIntoView("file://" + extractPath + "index.html", true);
         }
 
         if (action.equals("fetch")) {
@@ -208,6 +208,7 @@ public class AppLoader extends CordovaPlugin {
 
         cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
+                CordovaWebView webView = new CordovaWebView();
                 webView.setWebViewClient(new WebViewClient(){
                     @Override
                     public void onPageFinished(WebView view, String url) {
