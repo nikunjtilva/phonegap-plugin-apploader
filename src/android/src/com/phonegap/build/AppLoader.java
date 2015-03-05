@@ -56,7 +56,8 @@ public class AppLoader extends CordovaPlugin {
                 return true;
             }
             injectHomeScript(callbackContext);
-            super.webView.loadUrl("file://" + extractPath + "index.html");
+            //super.webView.loadUrl("file://" + extractPath + "index.html");
+            CordovaWebView.loadUrlIntoView("file://" + extractPath + "index.html", true);
         }
 
         if (action.equals("fetch")) {
